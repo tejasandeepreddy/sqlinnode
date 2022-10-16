@@ -19,7 +19,6 @@ db.connect((err)=>{
     console.log('MySql Connected...');
 });
 
-//create DB
 app.get('/createdb',(req,res)=>{
     let sql = 'CREATE DATABASE payments';
     db.query(sql, (err, result)=>{
