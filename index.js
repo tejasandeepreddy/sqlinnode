@@ -21,22 +21,6 @@ db.connect((err)=>{
 
 
 
-//create table
-app.get('/createpaymenttable',(req,res)=>{
-    let sql = 'CREATE TABLE payments(id varchar(36), userID varchar(36), learningExperienceID varchar(36), paymentID varchar(128), orderID varchar(128) , completedAt TIMESTAMP, paymentMethod varchar(36), PRIMARY KEY(id))';
-    db.query(sql, (err, result)=>{
-        if(err) throw err;
-        console.log(result);
-        res.send('Payments table created...');
-    });
-    let sql1 = 'CREATE TABLE failedPayments(id varchar(36), userID varchar(36), learningExperienceID varchar(36), paymentID varchar(128), orderID varchar(128),errorCode varchar(36), errorReason varchar(256), paymentMethod varchar(36), PRIMARY KEY(id))';
-    db.query(sql1, (err, result)=>{
-        if(err) throw err;
-        console.log(result);
-        res.send('failedPayments table created...');
-    });
-});
-
 //insert payment info
 app.get('/addpaymentinfo',(req,res)=>{
     const now = new Date();
