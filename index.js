@@ -11,7 +11,7 @@ const db = mysql.createConnection({
     database : 'payments' // Database name
 });
 
-// Connect
+
 db.connect((err)=>{
     if(err){
         throw err;
